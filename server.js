@@ -6,8 +6,11 @@ import { fileURLToPath } from 'url'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 
-// import routers
+// connect to MongoDB with mongoose
+import('./config/database.js')
 
+
+// import routers
 import { router as puppiesRouter } from './routes/puppies.js'
 
 // set up app
@@ -32,8 +35,7 @@ app.use(
 )
 
 // mounted routers
-
-app.use('/puppies', puppiesRouter)
+app.use('/api/puppies', puppiesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

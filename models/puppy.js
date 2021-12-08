@@ -3,9 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema 
 
 const puppySchema = new Schema ({
-  name: String,
-  breed: String,
-  age: Number
+  name: {type: String, required: true},
+  breed: {type: String, default: "Mixed"},
+  age: {type: Number, default: 0},
 })
 
 const Puppy = mongoose.model('Puppies', puppySchema)
